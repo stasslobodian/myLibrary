@@ -1,0 +1,70 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  margin: 0;
+  background: #f2f2f2;
+}
+
+mat-toolbar-row {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+table {
+  width: 960px;
+  margin: 0 auto;
+}
+
+a {
+  color:#3f51b5;
+  text-decoration:none
+}
+
+mat-card.form-mc {
+  max-width: 536px;
+  padding: 0px;
+  margin: 0px auto;
+}
+
+mat-card-header.form-mc-header {
+  background-color:#d5dbff;
+  padding:12px 10px;
+}
+
+mat-card-title.form-mc-title {
+   font-size:16px;
+   color:#1a224b;
+   margin:0px;
+}
+
+mat-card-content.form-mc-content {
+  padding: 18px;
+}
+
+form.regular-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-author-row {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  font-size:16px;
+  color:#3f51b5;
+}
+
+.highlight{
+  background: #42A948;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}

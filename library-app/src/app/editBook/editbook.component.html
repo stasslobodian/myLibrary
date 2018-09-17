@@ -1,0 +1,57 @@
+<mat-card class="form-mc" *ngIf="isReady">
+  <mat-card-header class="form-mc-header">
+     <mat-card-title class="form-mc-title">Edit book</mat-card-title>
+  </mat-card-header>
+<mat-card-content class="form-mc-content">
+<form class="regular-form" [formGroup]="updateForm" novalidate (ngSubmit)="submit(updateForm)">
+  <!-- list of authors -->
+<div formArrayName="persons" *ngFor="let person of updateForm.get('persons').controls; let i=index">
+  <!-- author header, show remove button when more than one author available -->
+  <div class="form-author-row">
+    Author <span *ngIf="i !== 0">{{i + 1}}</span>
+    <div class="fill-remaining-space"></div>
+    <button mat-stroked-button color="warn" style="line-height:24px" type="button" *ngIf="updateForm.get('persons').length > 1"
+      (click)="removeAuthor(i)">remove
+    </button>
+  </div>
+
+  <div [formGroupName]="i">
+  <mat-form-field class="full-width">
+    <input type="text" matInput maxlength="64" formControlName="firstName" placeholder="First name" [matAutocomplete]="fname" required>
+    <mat-autocomplete #fname="matAutocomplete">
+      <mat-option *ngFor="let option of filteredFirstNames[i] | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input type="text" matInput maxlength="64" formControlName="lastName" placeholder="Last name" [matAutocomplete]="lname" required>
+    <mat-autocomplete #lname="matAutocomplete">
+      <mat-option *ngFor="let option of filteredLastNames[i] | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  </div>
+</div>
+<button mat-stroked-button color="primary" type="button" (click)="addAuthor()">Add another author +</button>
+<!-- book -->
+<mat-form-field class="full-width" style="margin-top:8px">
+  <input type="text" matInput maxlength="254" placeholder="Title" formControlName="title" required>
+</mat-form-field>
+
+<mat-form-field class="full-width">
+  <input type="text" matInput maxlength="64" placeholder="Genre" formControlName="genre">
+</mat-form-field>
+
+<mat-form-field class="full-width">
+  <input type="text" matInput maxlength="4" placeholder="Year" formControlName="year" OnlyNumber="true" required>
+</mat-form-field>
+<mat-card-actions style="margin:0px" align="end">
+  <button mat-raised-button color="primary" type="submit" [disabled]="!updateForm.valid">Submit</button>
+</mat-card-actions>
+
+</form>
+</mat-card-content>
+</mat-card>

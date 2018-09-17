@@ -1,0 +1,15 @@
+<div>
+  <mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+  <span>{{title}}</span>
+  <span class="fill-remaining-space"></span>
+  <span><a mat-button routerLink="/books">Books</a></span>
+  <span><a mat-button routerLink="/authors">Authors</a></span>
+  <span><a mat-stroked-button routerLink="/addbook" style="margin-left:12px">Add book</a></span>
+
+  </mat-toolbar-row>
+  </mat-toolbar>
+<br/>
+<router-outlet></router-outlet>
+</div>

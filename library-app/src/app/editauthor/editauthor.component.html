@@ -1,0 +1,18 @@
+<mat-card class="form-mc" *ngIf="person">
+  <mat-card-header class="form-mc-header">
+     <mat-card-title class="form-mc-title">Edit author</mat-card-title>
+  </mat-card-header>
+<mat-card-content class="form-mc-content">
+<form class="regular-form" [formGroup]="updateForm" novalidate (ngSubmit)="submit(updateForm)">
+  <mat-form-field class="full-width">
+    <input type="text" matInput maxlength="64" formControlName="firstName" placeholder="First name" required>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input type="text" matInput maxlength="64" formControlName="lastName" placeholder="Last name" required>
+  </mat-form-field>
+  <mat-card-actions Style="margin:0px" align="end">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!updateForm.valid">Submit</button>
+  </mat-card-actions>
+</form>
+</mat-card-content>
+</mat-card>
